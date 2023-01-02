@@ -2,25 +2,25 @@
 
 ## What is an n-gram model?
 
-An [n-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n words found in a text. In the complete works on Sherlock Holmes by Arthur Conan Doyle for instance, the 2-gram *"I confess"* occurs 15 times. An n-gram model is a probabilistic model of which word will follow next after the n-gram. For instance, "I confess" is followed by the word "how" (1/15), "that" (11/15), "said" (1/15), "to" (1/15), or "is" (1/15), with the probabilities in brackets.
+An [n-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n words found in a text. In the complete works on Sherlock Holmes by Arthur Conan Doyle for instance, the 2-gram "*I confess*" occurs 15 times. An n-gram model is a probabilistic model of which word will follow next after the n-gram. For instance, "*I confess*" is followed by the word "*how*" (1/15), "*that*" (11/15), "*said*" (1/15), "*to*" (1/15), or "*is*" (1/15), with the probabilities in brackets.
 
-An n-gram model can be used to generate new sentences, i.e. by taking a seed sentence such as "i confess", and probabilisitically finding the next word. Let's say the next word is "that" (by far the most likely one with probability 11/15). Then take the 2-gram "confess that" (with table "i" (12), "the" (2), "it (1)) to generate the next word, e.g. "i". This continues until a sentence ends with a punctuation mark. This may yield a sentence such as "i confess that i was saving considerable sums of money ." below some more examples:
+An n-gram model can be used to generate new sentences, i.e. by taking a seed sentence such as "*i confess*", and probabilisitically finding the next word. Let's say the next word is "*that*" (by far the most likely one with probability 11/15). Then take the 2-gram "*confess that*" (with table "*i*" (12), "*the*" (2), "*it* (1)) to generate the next word, e.g. "*i*". This continues until a sentence ends with a punctuation mark. This may yield a sentence such as "*i confess that i was saving considerable sums of money .*" below some more examples:
 
-* i confess that i was completely mistaken .
-* i was irresistibly reminded of a skeleton .
-* i'm not rich but still i had made a very serious case .
-* holmes is a very stout florid faced elderly gentleman with fiery red hair .
-* holmes is a myth .
-* holmes was certainly not one who realizes the greatness of the mormons .
+* *i confess that i was completely mistaken .*
+* *i was irresistibly reminded of a skeleton .*
+* *i'm not rich but still i had made a very serious case .*
+* *holmes is a very stout florid faced elderly gentleman with fiery red hair .*
+* *holmes is a myth .*
+* *holmes was certainly not one who realizes the greatness of the mormons .*
 
 Note that I hand-picked these sentences. Often the model generates grammatically incorrect sentences such as:
 
-* 2-gram: "i confess" that i depend upon your toe caps is quite a jump in his velveteen tunic .
-* 2-gram: "i confess" that the whole pacific slope .
-* 4-gram: "i confess that i" was of the opinion that stangerson was concerned in the death of drebber . (this is * 
-* 1-gram: "i confess" now though he answered mr john ferrier's property to be useful life appears to england without a constancy almost womanly caress .
-a literaly sentence from a book; not very creative)
-* 1-gram: "holmes" john openshaw unbreakable tire and have heard him nearly half an absolute reliability is the farm he shouted to marry her to be an ordinary pills which i had come with a little more extraordinary matters little mystery in the generations who were many of the afternoon and made a criminal .
+* 2-gram: *"i confess" that i depend upon your toe caps is quite a jump in his velveteen tunic .
+* 2-gram: *"i confess" that the whole pacific slope .
+* 4-gram: *"i confess that i" was of the opinion that stangerson was concerned in the death of drebber .* (this is a literaly sentence from a book; not very creative)
+* 1-gram: *"i confess" now though he answered mr john ferrier's property to be useful life appears to england without a constancy almost womanly caress .*
+
+* 1-gram: *"holmes" john openshaw unbreakable tire and have heard him nearly half an absolute reliability is the farm he shouted to marry her to be an ordinary pills which i had come with a little more extraordinary matters little mystery in the generations who were many of the afternoon and made a criminal .*
 
 In general higher n leads to a higher probability of a grammatically correct sentence, but "less creative" sentences. 
 
@@ -34,13 +34,13 @@ At one end of a spectrum of complexity, a n-gram-model does not "understand" the
 
 In terms of performance and complexity. comparisons between ChatGPT and the code in this repo are rather absurd. But deep down, they both are both based on statistical models of language that are generated from large text corpora (note that ChatGPT adds an RL component to the pure supervised learning approach). Does this preclude ChatGPT from "understanding" the sentences it generates? My intuition is "yes", i.e. ChatGPT does not understand its sentences. And if you believe that ChatGPT does understand its sentences, would you still argue that an n-gram-model does not? What is the difference? (There are many! It's a question meant as food for thought, not for me to answer here).
 
-A crucial difference between humans and these statistical language models is that we learn to associate words/sentences with the outside world. I.e. a "hair" is not just a string with four characters in it, it is something we associate with growing on animals and on people's heads (except bald people), something that we need to wash, and that there are hairdressers for making it look good, i.e. all concepts and processes that exist in the outside world. The outside world is also important to determine whether statements are true or not, e.g. "My hair is fiery red." is incorrect, because my hair is not. This is a problem for statistical approaches, because they aim at generating likely sentences (given the text corpus), not generating ones that are true, e.g. "ChatGPT sometimes writes plausible-sounding but incorrect or nonsensical answers." [1](https://openai.com/blog/chatgpt/). 
+A crucial difference between humans and these statistical language models is that we learn to associate words/sentences with the outside world. I.e. a "*hair*" is not just a string with four characters in it, it is something we associate with growing on animals and on people's heads (except bald people), something that we need to wash, and that there are hairdressers for making it look good, i.e. all concepts and processes that exist in the outside world. The outside world is also important to determine whether statements are true or not, e.g. "*My hair is fiery red.*" is incorrect, because my hair is not. This is a problem for statistical approaches, because they aim at generating likely sentences (given the text corpus), not generating ones that are true, e.g. "*ChatGPT sometimes writes plausible-sounding but incorrect or nonsensical answers.*" [1](https://openai.com/blog/chatgpt/). 
 
-In this context, I find "holmes is a myth ." to be a profound statement by the n-gram-model, because it is true in the outside world, but not true in the Sherlock Holmes books. It has learned to think beyond the confines of the book! ;-)  On the other hand "holmes is a very stout florid faced elderly gentleman with fiery red hair ." is false within the books. As n-gram-model says: "i confess that i was completely mistaken ."
+In this context, I find "*holmes is a myth .*" to be a profound statement by the n-gram-model, because it is true in the outside world, but not true in the Sherlock Holmes books. It has "learned" to "think" beyond the confines of the book! ;-)  On the other hand "*holmes is a very stout florid faced elderly gentleman with fiery red hair .*" is false within the books. As n-gram-model says with great self-reflection: "*i confess that i was completely mistaken .*"
 
 In fact, n_gram_model.py can generate the code necessary to generate such sentences! By simply calling `python3 n_gram_model.py n_gram_model.py 4 "import sys import random"` (which contains no information about n_gram_model!) the script generates code that has the same functionality as the script itself (including the comments!). Try it. In fact, the code that is generated can generate itself again. And this ad infinitum. Such strange loops are what Douglas Hofstadter considers to be the basis for conciousness. Just saying.
 
-Also the question of copyright pops up here. The novel sentences it generates are new works, inspired by the Sherlock Holmes stories. But especially for large "n" it becomes more likely that sentences are literally quoted from the stories, and at some point, the stories themselves are reproduced verbatim. Luckily, [Sherlock Holmes stories have entered the public domain](https://www.rollingstone.com/culture/culture-news/metropolis-sherlock-holmes-public-domain-day-2023-1234654562/) (which I why I can include the text corpus in the repo), but the debate on this is timely given ChatGPT and [Stable Difusion](https://stablediffusionweb.com/).
+Also the question of copyright pops up here. The novel sentences that this code generates are new andinspired by the Sherlock Holmes stories. But especially for large n it becomes more likely that sentences are literally quoted from the stories, and at some point, the stories themselves are reproduced verbatim. Luckily, [Sherlock Holmes stories have entered the public domain](https://www.rollingstone.com/culture/culture-news/metropolis-sherlock-holmes-public-domain-day-2023-1234654562/) (which I why I can include the text corpus in the repo), but the debate on this is timely given ChatGPT and [Stable Difusion](https://stablediffusionweb.com/).
 
 ## Documentation of functions
 
