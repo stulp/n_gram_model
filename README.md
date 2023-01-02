@@ -13,6 +13,8 @@ An n-gram model can be used to generate new sentences, i.e. by taking a seed sen
 * *holmes is a myth .*
 * *holmes was certainly not one who realizes the greatness of the mormons .*
 
+See [the appendix](https://github.com/stulp/n_gram_model#appendix-more-samples-of-generated-sentences) for some more examples.
+
 Note that I hand-picked these sentences. Often the model generates grammatically incorrect sentences such as:
 
 * 2-gram: *"i confess" that i depend upon your toe caps is quite a jump in his velveteen tunic .
