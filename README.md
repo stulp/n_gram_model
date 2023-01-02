@@ -83,18 +83,18 @@ The functions are not documented with docstrings etc, because it's a bit tedious
 
 ## Appendix: more samples of generated sentences
 
-* holmes was not an english paper at all ? (*here the, question marks seems to indicate n_gram_model is not sure that this is a true statement*)
-* holmes was certainly not one who realizes the greatness of the mormons .
-* holmes is a very stout florid faced elderly gentleman with fiery red hair .
-* holmes desired to be considerably taller .
-* holmes was certainly not a common experience among employers in this age .
-* holmes was certainly not very communicative during the last entry ?
-* holmes was certainly not one of the dirtiest and most daring criminals of london bridge .
-* your hair is of the highest pitch of expectancy there was some information in them which would not have made myself clear ?
-* i'm not rich but still i had made a very serious case . (*n_gram_model, this is certainly true*)
-* i confess that i was saving considerable sums of money .
-* i was irresistibly reminded of a skeleton . (*n_gram_model displaying associative thinking*)
-* i was inclined to think that those seven weeks represented the difference between a stradivarius and an engagement  . (*I'm not sure what it means, but it sounds profound*)
-* i am not mistaken .
-* i confess that i was completely mistaken .
-* i confess that i miss my rubber . (*n_gram_model! come on*)
+* *holmes was not an english paper at all ?* (here the, question marks seems to indicate n_gram_model is not sure that this is a true statement)
+* *holmes was certainly not one who realizes the greatness of the mormons .*
+* *holmes is a very stout florid faced elderly gentleman with fiery red hair .*
+* *holmes desired to be considerably taller .*
+* *holmes was certainly not a common experience among employers in this age .*
+* *holmes was certainly not very communicative during the last entry ?*
+* *holmes was certainly not one of the dirtiest and most daring criminals of london bridge .*
+* *your hair is of the highest pitch of expectancy there was some information in them which would not have made myself clear ?*
+* *i'm not rich but still i had made a very serious case .*
+* *i confess that i was saving considerable sums of money .* (n_gram_model, have you learned about Bitcoin?!)
+* *i was irresistibly reminded of a skeleton .* (n_gram_model displaying associative thinking)
+* *i was inclined to think that those seven weeks represented the difference between a stradivarius and an engagement  .* I'm not sure what it means, but it certainly sounds profound.
+* *i am not mistaken .*
+* *i confess that i was completely mistaken .*
+* *i confess that i miss my rubber .* (n_gram_model! come on)
