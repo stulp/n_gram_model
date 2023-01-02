@@ -2,9 +2,7 @@
 
 ## What is an n-gram model?
 
-Wikipedia: https://en.wikipedia.org/wiki/N-gram
-
-An n-gram is a sequence of n words found in a text. In the complete works on Sherlock Holmes by Arthur Conan Doyle for instance, the 2-gram "I confess" occurs 15 times. An n-gram model is a probabilistic model of which word will follow next after the n-gram. For instance, "I confess" is followed by the word "how" (1/15), "that" (11/15), "said" (1/15), "to" (1/15), or "is" (1/15), with the number of occurences in brackets.
+An [n-gram](https://en.wikipedia.org/wiki/N-gram) is a sequence of n words found in a text. In the complete works on Sherlock Holmes by Arthur Conan Doyle for instance, the 2-gram *"I confess"* occurs 15 times. An n-gram model is a probabilistic model of which word will follow next after the n-gram. For instance, "I confess" is followed by the word "how" (1/15), "that" (11/15), "said" (1/15), "to" (1/15), or "is" (1/15), with the probabilities in brackets.
 
 An n-gram model can be used to generate new sentences, i.e. by taking a seed sentence such as "i confess", and probabilisitically finding the next word. Let's say the next word is "that" (by far the most likely one with probability 11/15). Then take the 2-gram "confess that" (with table "i" (12), "the" (2), "it (1)) to generate the next word, e.g. "i". This continues until a sentence ends with a punctuation mark. This may yield a sentence such as "i confess that i was saving considerable sums of money ." below some more examples:
 
